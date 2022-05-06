@@ -11,6 +11,8 @@ if ( GRLIB_introduction ) then {
     sleep 5.5;
     cutRsc ["intro2","PLAIN",1,true];
     sleep 10;
+    cutRsc ["intro3","PLAIN",1,true];
+    sleep 10;
 
 };
 

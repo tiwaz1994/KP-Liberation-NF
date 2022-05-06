@@ -3,13 +3,6 @@ waitUntil {!isNil "KPLIB_initServer"};
 params ["_newUnit", "_oldUnit"];
 
 if (isNil "GRLIB_respawn_loadout") then {
-    removeAllWeapons player;
-    removeAllItems player;
-    removeAllAssignedItems player;
-    removeVest player;
-    removeBackpack player;
-    removeHeadgear player;
-    removeGoggles player;
     player linkItem "ItemMap";
     player linkItem "ItemCompass";
     player linkItem "ItemWatch";

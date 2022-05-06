@@ -128,5 +128,43 @@ KPLIB_objectInits = [
             _this allowFleeing 0;
         },
         true
+    ],
+
+    //set ACE resupply,refuel,repair FOB buildings
+    [
+        ["LIB_AmmoCrates_NoInteractive_Large"], 
+        {
+            _this setVariable ["ace_rearm_isSupplyVehicle", true];
+            _this call ace_rearm_fnc_initSupplyVehicle;
+        }
+    ],
+    
+    [
+        ["Land_CUP_Ind_TankSmall_w"], 
+        {
+            [_this,1000] call ace_refuel_fnc_makeSource;
+        }
+    ],
+    
+    [
+        ["Land_Workbench_01_F"], 
+        {
+            _this setVariable ["ace_isRepairFacility", 1, true];
+        }
+    ],
+
+    //add Cargo to NF support boxes
+    [
+        ["WW2_Cle_Container","NORTH_Supplytorpedo"],
+        {
+            [{_this call TWZ_fnc_addContainerGear;},_this,3] call CBA_fnc_waitAndExecute;
+        }
+    ],
+    //invincible
+    [
+        ["Land_WW2_Rus_Plash_Palatka","CampEast_EP1","CampEast","CampEastC","Land_tent_east","Land_TentHangar_V1_F"], 
+        {
+            [{_this addEventHandler ["HandleDamage", {0}];_this allowDamage false;},_this,3] call CBA_fnc_waitAndExecute;
+        }
     ]
 ];

@@ -51,7 +51,9 @@ KP_liberation_medical_vehicles = [
     "uns_ch47a_medevac",
     "uns_H13_medevac_CAV",
     "uns_M577_amb",
-    "uns_uh1D_med"
+    "uns_uh1D_med",
+    "LIB_Zis5v_Med",
+	"LIB_OpelBlitz_Ambulance"
 ];
 
 // Building classnames which also function as ACE medical facilities.
@@ -63,7 +65,8 @@ KP_liberation_medical_facilities = [
     "uns_mash_main",
     "uns_mash",
     "US_Tent_2",
-    "US_Tent_MASH"
+    "US_Tent_MASH",
+    "CampEast"
 ];
 
 // Classnames of ACE3 crates (which have to be in the unit preset as well).
@@ -108,8 +111,9 @@ If you want to change a preset, it's recommended to set all four presets to 0 an
 27 = CUP Takistani Army
 28 = SFP (Woodland)
 29 = SFP (Desert)
-30 = LDF (Contact DLC) */
-KP_liberation_preset_blufor = 0;
+30 = LDF (Contact DLC)
+31 = Northern Fronts Fin 39 w */
+KP_liberation_preset_blufor = 31;
 
 /* OPFOR preset:
 0  = Custom (default vanilla CSAT)
@@ -132,8 +136,9 @@ KP_liberation_preset_blufor = 0;
 17 = CUP Armed Forces of the Russian Federation (Modern MSV)
 18 = CUP Chernarus Defense Force
 19 = CUP British Armed Forces (Desert)
-20 = CUP British Armed Forces (Woodland) */
-KP_liberation_preset_opfor = 0;
+20 = CUP British Armed Forces (Woodland)
+21 = Northern Fronts Soviets 39 w*/
+KP_liberation_preset_opfor = 21;
 
 /* Resistance preset:
 0  = Custom (default vanilla FIA)
@@ -144,8 +149,9 @@ KP_liberation_preset_opfor = 0;
 5  = Germany (Global Mobilization)
 6  = Unsung
 7  = CUP Takistani Locals
-8  = CUP National Party of Chernarus */
-KP_liberation_preset_resistance = 0;
+8  = CUP National Party of Chernarus
+9  = Northern Fronts Civilians Resistance */
+KP_liberation_preset_resistance = 9;
 
 /* Civilians preset:
 0  = Custom (default vanilla)
@@ -155,8 +161,9 @@ KP_liberation_preset_resistance = 0;
 4  = Germany (Global Mobilization)
 5  = Unsung
 6  = CUP Takistani Civilians
-7  = CUP Chernarussian Civilians */
-KP_liberation_preset_civilians = 0;
+7  = CUP Chernarussian Civilians 
+8  = Northern Fronts Norwegian Civlians*/
+KP_liberation_preset_civilians = 8;
 
 /* Which arsenal preset should be used?
 0  = Use the default blacklist method (defined below)
@@ -175,8 +182,9 @@ KP_liberation_preset_civilians = 0;
 13 = CSAT Hex arsenal preset
 14 = CSAT Green Hex arsenal preset
 15 = AAF arsenal preset
-16 = LDF arsenal preset */
-KP_liberation_arsenal = 0;
+16 = LDF arsenal preset 
+17 = Northern Fronts*/
+KP_liberation_arsenal = 17;
 
 /* - Fuel consumption settings.
 Time in minutes till a full tank depletes whilst the vehicle is standing still with a running engine. */
@@ -192,9 +200,9 @@ GRLIB_save_key = "KP_LIBERATION_" + (toUpper worldName) + "_SAVEGAME";
 
 KP_liberation_save_interval = 60;                                       // Interval in seconds for automatic save.
 
-GRLIB_side_friendly = WEST;                                             // Friendly side.
+GRLIB_side_friendly = RESISTANCE;                                       // Friendly side.
 GRLIB_side_enemy = EAST;                                                // Enemy side.
-GRLIB_side_resistance = RESISTANCE;                                     // Resistance side.
+GRLIB_side_resistance = WEST;                                           // Resistance side.
 GRLIB_side_civilian = CIVILIAN;                                         // Civilian side.
 GRLIB_respawn_marker = "respawn";                                       // Respawn marker name.
 
@@ -277,7 +285,9 @@ KP_liberation_suppMod_whitelist = [
 /* Array of radio tower classnames to place at radio tower sectors.
 If more than one is added, it'll be selected random for each sector on campaign start. */
 KPLIB_radioTowerClassnames = [
-    "Land_Communication_F"
+    "LIB_Static_OpelBlitz_Radio",
+    "LIB_Static_Zis6_Radar",
+    "Land_Antenna"
 ];
 
 /* - Default arsenal blacklist method.
@@ -434,7 +444,6 @@ KP_liberation_allowed_items_extension = [
     "ACE_Chemlight_Shield_Red",
     "ACE_Chemlight_Shield_White",
     "ACE_Chemlight_Shield_Yellow",
-    "ACE_launch_NLAW_Used_F",
     "ACE_PreloadedMissileDummy_CUP",
     "ACE_PreloadedMissileDummy_Igla_CUP",
     "ACE_PreloadedMissileDummy_M72A6_CUP",
@@ -534,6 +543,19 @@ KP_liberation_allowed_items_extension = [
     "sma_spitfire_03_rds_low_ard_red",
     "UK3CB_BAF_AT4_CS_AP_Mag",
     "UK3CB_BAF_Javelin_Launcher"
+    /*
+    "NORTH_sov_M9130",
+	"NORTH_sov_m9130_PEM",
+	"NORTH_dp27",
+	"NORTH_PPD34",
+	"NORTH_PPD34_38",
+	"NORTH_SVT38",
+	"NORTH_m1895",
+	"NORTH_TT33",
+    "NORTH_Binocular_Huet",
+    "NORTH_Lahti_L39_Gun_Bag",
+	"NORTH_Lahti_L39_Tripod_Bag"
+    */
 ];
 
 /* - Configuration settings for crates transported by vehicles.
@@ -707,7 +729,14 @@ KPLIB_transportConfigs = [
     ["uns_m37b1", -5, [0,-1.8,0.15]],
     ["uns_nvatruck_mg", -5, [0,-1.05,0.8], [0,-2.75,0.8]],
     ["uns_nvatruck_open", -5, [0,-1.05,0.8], [0,-2.75,0.8]],
-    ["uns_nvatruck", -5, [0,-1.05,0.8], [0,-2.75,0.8]]
+    ["uns_nvatruck", -5, [0,-1.05,0.8], [0,-2.75,0.8]],
+    ["LIB_Zis5v_w", -6.5, [0,-0.4,-0.02], [0,-1.9,-0.02]],
+    ["uns_nvatruck", -5, [0,-1.05,0.8], [0,-2.75,0.8]],
+    ["LIB_OpelBlitz_Open_Y_Camo_w", -6.5, [0,0,0.659], [0,-0.9,0.68], [0,-1.95,0.68]],
+	["LIB_OpelBlitz_Tent_Y_Camo_w", -6.5, [0,-0.2,0.659], [0,-0.9,0.68], [0,-1.95,0.68]],
+	["LIB_OpelBlitz_Open_G_Camo_w", -6.5, [0,0,0.659], [0,-0.9,0.68], [0,-1.95,0.68]],
+    ["LIB_SdKfz_7_w", -6.5, [0,-0.3,-0.05], [0,-1.35,-0.05], [0,-2.4,-0.05], [0,-0.3,1.5], [0,-1.35,1.5], [0,-2.4,1.5], [0,-0.3,3.05], [0,-1.35,3.05], [0,-2.4,3.05]],
+    ["LIB_C47_RAF_snafu",- 11, [0,-3.6,-0.05], [0,-2.5,-0.15], [0,-1.4,-0.25], [0,-0.3,-0.25], [0,0.8,-0.25], [0,1.9,-0.25], [0,3,-0.25], [0,4.1,-0.25]]
 ];
 
 /* Various other settings.
@@ -751,7 +780,9 @@ KPLIB_aiResupplySources = [
     "sfp_tgb40_ammo",
     "uns_M113_ENG",
     "uns_M35A2_ammo",
-    "uns_motorpool1_repair"
+    "uns_motorpool1_repair",
+    "LIB_AmmoCrates_NoInteractive_Large",
+    "LIB_OpelBlitz_Ammo_w"
 ];
 
 // Everything that can resupply other vehicles.
@@ -794,7 +825,11 @@ vehicle_repair_sources = [
     "UNS_Hanger_repair",
     "uns_M113_ENG",
     "uns_M35A2_repair",
-    "uns_motorpool1_repair"
+    "uns_motorpool1_repair",
+    "Land_Workbench_01_F",
+    "LIB_Zis6_Parm",
+    "LIB_OpelBlitz_Parm_w",
+    "LIB_Zis6_parm_w"
 ];
 
 vehicle_rearm_sources = [
@@ -835,7 +870,9 @@ vehicle_rearm_sources = [
     "rhsusf_M977A4_AMMO_usarmy_wd",
     "sfp_tgb40_ammo",
     "uns_M113_ENG",
-    "uns_M35A2_ammo"
+    "uns_M35A2_ammo",
+    "LIB_AmmoCrates_NoInteractive_Large",
+    "LIB_OpelBlitz_Ammo_w"
 ];
 
 vehicle_refuel_sources = [
@@ -877,7 +914,14 @@ vehicle_refuel_sources = [
     "sfp_tgb40_fuel",
     "uns_M113_ENG",
     "uns_M35A2_fuel",
-    "uns_M35A2_fueltanker"
+    "uns_M35A2_fueltanker",
+    "Land_wagon_tanker",
+    "Land_Tank_rust_F",
+    "Land_CUP_Ind_TankSmall_w",
+    "Land_Ind_TankSmall",
+    "LIB_Zis5v_Fuel",
+    "LIB_Zis5v_fuel_w",
+    "LIB_OpelBlitz_Fuel_w"
 ];
 
 // Classnames of boats, so they can be built on water.
@@ -1034,8 +1078,8 @@ KP_liberation_suppMod_artyVeh = [
 
 // Objects which are spawned as intel objects for pickup
 KPLIB_intelObjectClasses = [
-    "Land_File_research_F",
-    "Land_Document_01_F"
+    "Intel_File2_F",
+    "Intel_File1_F"
 ];
 
 // Classnames of buildings inside military sectors, which are valid to hold intel items
@@ -1055,7 +1099,18 @@ KPLIB_intelBuildingClasses = [
     "Land_MilOffices_V1_F",
     "Land_Research_house_V1_F",
     "Land_Research_HQ_F",
-    "Land_u_Barracks_V2_F"
+    "Land_u_Barracks_V2_F",
+    "Land_PoliceStation_01_F",
+    "Land_Bunker_01_HQ_F",
+    "Land_ServiceHangar_01_L_F",
+    "Land_ServiceHangar_01_R_F",
+    "Land_Radar_01_HQ_F",
+    "Land_ControlTower_02_F",
+    "Land_Barracks_06_F",
+    "Land_GuardHouse_02_grey_F",
+    "Land_Barracks_04_F",
+    "Land_I44_Buildings_Bunker_AA",
+    "Land_Bunker_02_light_double_F"
 ];
 
 // Large storage area placement position offsets.

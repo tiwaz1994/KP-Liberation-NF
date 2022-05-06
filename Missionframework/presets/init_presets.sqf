@@ -39,6 +39,7 @@ switch (KP_liberation_preset_blufor) do {
     case 28: {[] call compileFinal preprocessFileLineNumbers "presets\blufor\sfp_wdl.sqf";};
     case 29: {[] call compileFinal preprocessFileLineNumbers "presets\blufor\sfp_des.sqf";};
     case 30: {[] call compileFinal preprocessFileLineNumbers "presets\blufor\enoch.sqf";};
+    case 31: {[] call compileFinal preprocessFileLineNumbers "presets\blufor\north_fin_39_w.sqf";};
     default  {[] call compileFinal preprocessFileLineNumbers "presets\blufor\custom.sqf";};
 };
 
@@ -63,6 +64,7 @@ switch (KP_liberation_preset_opfor) do {
     case 18: {[] call compileFinal preprocessFileLineNumbers "presets\opfor\CUP_CDF.sqf";};
     case 19: {[] call compileFinal preprocessFileLineNumbers "presets\opfor\CUP_BAF_Desert.sqf";};
     case 20: {[] call compileFinal preprocessFileLineNumbers "presets\opfor\CUP_BAF_Woodland.sqf";};
+    case 21: {[] call compileFinal preprocessFileLineNumbers "presets\opfor\north_sov_39_w.sqf";};
     default  {[] call compileFinal preprocessFileLineNumbers "presets\opfor\custom.sqf";};
 };
 
@@ -75,6 +77,7 @@ switch (KP_liberation_preset_resistance) do {
     case  6: {[] call compileFinal preprocessFileLineNumbers "presets\resistance\unsung.sqf";};
     case  7: {[] call compileFinal preprocessFileLineNumbers "presets\resistance\CUP_TakiLocals.sqf";};
     case  8: {[] call compileFinal preprocessFileLineNumbers "presets\resistance\CUP_NAPA.sqf";};
+    case  9: {[] call compileFinal preprocessFileLineNumbers "presets\resistance\north_civ_res.sqf";};
     default  {[] call compileFinal preprocessFileLineNumbers "presets\resistance\custom.sqf";};
 };
 
@@ -86,27 +89,42 @@ switch (KP_liberation_preset_civilians) do {
     case  5: {[] call compileFinal preprocessFileLineNumbers "presets\civilians\unsung.sqf";};
     case  6: {[] call compileFinal preprocessFileLineNumbers "presets\civilians\CUP_TakiCivs.sqf";};
     case  7: {[] call compileFinal preprocessFileLineNumbers "presets\civilians\CUP_ChernoCivs.sqf";};
+    case  8: {[] call compileFinal preprocessFileLineNumbers "presets\civilians\north_civ.sqf";};
     default  {[] call compileFinal preprocessFileLineNumbers "presets\civilians\custom.sqf";};
 };
 
 // Prices for the blufor infantry squads (supplies, ammo, fuel)
 KPLIB_b_allSquads = [
-    [blufor_squad_inf_light,200,0,0],
-    [blufor_squad_inf,300,0,0],
-    [blufor_squad_at,200,250,0],
-    [blufor_squad_aa,200,250,0],
-    [blufor_squad_recon,250,0,0],
-    [blufor_squad_para,200,0,0]
+    [blufor_squad_NORTH_FIN_W_39_Rifle_Squad,150,20,0],
+    [blufor_squad_NORTH_FIN_W_39_LMG_Squad,180,30,0],
+    [blufor_squad_NORTH_FIN_W_39_AT_Team,150,30,0],
+    [blufor_squad_NORTH_FIN_J_W_39_Rifle_Squad,150,20,0],
+    [blufor_squad_NORTH_FIN_J_W_39_LMG_Squad,180,30,0],
+    [blufor_squad_NORTH_FIN_J_W_39_AT_Team,150,30,0],
+    [blufor_squad_NORTH_FIN_C_W_39_Rifle_Squad,150,20,0],
+    [blufor_squad_NORTH_NORTH_FIN_C_W_39_LMG_Squad,180,30,0],
+    [blufor_squad_NORTH_FIN_C_W_39_AT_Team,150,30,0],
+    [blufor_squad_para,180,20,0]
 ];
 
 // Squad names for build menu
 squads_names = [
-    localize "STR_LIGHT_RIFLE_SQUAD",
+    "Infantry Rifle Squad",
+    "Infantry LMG Squad",
+    "Infantry AT Team",
+    "Jaeger Rifle Squad",
+    "Jaeger LMG Squad",
+    "Jaeger AT Team",
+    "Cavalry Rifle Squad",
+    "Cavalry LMG Squad",
+    "Cavalry AT Team",
+    localize "STR_PARA_SQUAD"
+    /*localize "STR_LIGHT_RIFLE_SQUAD",
     localize "STR_RIFLE_SQUAD",
     localize "STR_AT_SQUAD",
     localize "STR_AA_SQUAD",
     localize "STR_RECON_SQUAD",
-    localize "STR_PARA_SQUAD"
+    */
 ];
 
 // Classnames of objects which should be ignored when building
@@ -159,25 +177,69 @@ GRLIB_ignore_colisions_when_building = [
     "B_Mortar_01_F",                                                    // Mk6 Mortar
     "ACE_friesAnchorBar",                                               // ACE FRIES
     "ACE_friesGantryReverse",                                           // ACE FRIES
-    "ACE_friesGantry"                                                   // ACE FRIES
+    "ACE_friesGantry",                                                   // ACE FRIES
+    "land_NORTH_TrenchLong",
+    "land_NORTH_TrenchLong_one",
+    "land_NORTH_TrenchCorner60",
+    "land_NORTH_TrenchCorner",
+    "land_NORTH_TrenchEnd",
+    "land_NORTH_TrenchEntrance",
+    "land_NORTH_TrenchShort",
+    "land_NORTH_TrenchT",
+    "Land_WW2_Bench_w",
+    "WW2_JNS_Fort_Rampart_EP1",
+    "WW2_JNS_Fort_Rampart_Ep1_Flat",
+    "WW2_JNS_Fortified_Nest_Big",
+    "Land_WW2_Posed_w",
+    "Land_WW2_Trench76_w",
+    "Land_WW2_Trench_MG_Low_w",
+    "Land_WW2_TrenchMG_w",
+    "Land_WW2_Trench_Mortar_w",
+    "Land_WW2_Big_Infantry_Trench_w",
+    "Land_WW2_TrenchTank_w",
+    "Land_WW2_Fortification_Trench_Bunker_FFP_w",
+    "Land_WW2_Fortification_Trench_Corner_90_w",
+    "Land_WW2_Fortification_Trench_Corner_X1_w",
+    "Land_WW2_Fortification_Trench_Corner_X2_w",
+    "Land_WW2_Fortification_Trench_Bunker_Big_w",
+    "Land_WW2_Fortification_Trench_Bunker_Big_Doors_w",
+    "Land_WW2_Fortification_Trench_Long_X3_w",
+    "Land_WW2_Fortification_Trench_Wall_w",
+    "Land_WW2_Fortification_Trench_Wide_w",
+    "Land_WW2_Fortification_Trench_Bridge_w",
+    "CUP_Winter_obj_R_tk_Stone_02_EP1",
+    "CUP_Winter_obj_R_tk_Stone_01_EP1",
+    "Land_Hut_old02",
+    "Land_WoodenShelter_01_F",
+    "Land_tent_east",
+    "CampEast"
 ];
 
 /*
     Checking all preset arrays for missing mods and sort out not available classnames
 */
 // Blufor
-infantry_units                              = infantry_units                            select {[( _x select 0)] call KPLIB_fnc_checkClass};
-light_vehicles                              = light_vehicles                            select {[( _x select 0)] call KPLIB_fnc_checkClass};
-heavy_vehicles                              = heavy_vehicles                            select {[( _x select 0)] call KPLIB_fnc_checkClass};
-air_vehicles                                = air_vehicles                              select {[( _x select 0)] call KPLIB_fnc_checkClass};
-static_vehicles                             = static_vehicles                           select {[( _x select 0)] call KPLIB_fnc_checkClass};
-buildings                                   = buildings                                 select {[( _x select 0)] call KPLIB_fnc_checkClass};
-support_vehicles                            = support_vehicles                          select {[( _x select 0)] call KPLIB_fnc_checkClass};
-blufor_squad_inf_light                      = blufor_squad_inf_light                    select {[_x] call KPLIB_fnc_checkClass};
-blufor_squad_inf                            = blufor_squad_inf                          select {[_x] call KPLIB_fnc_checkClass};
+infantry_units                                 = infantry_units                                 select {[( _x select 0)] call KPLIB_fnc_checkClass};
+light_vehicles                                 = light_vehicles                                 select {[( _x select 0)] call KPLIB_fnc_checkClass};
+heavy_vehicles                                 = heavy_vehicles                                 select {[( _x select 0)] call KPLIB_fnc_checkClass};
+air_vehicles                                   = air_vehicles                                   select {[( _x select 0)] call KPLIB_fnc_checkClass};
+static_vehicles                                = static_vehicles                                select {[( _x select 0)] call KPLIB_fnc_checkClass};
+buildings                                      = buildings                                      select {[( _x select 0)] call KPLIB_fnc_checkClass};
+support_vehicles                               = support_vehicles                               select {[( _x select 0)] call KPLIB_fnc_checkClass};
+blufor_squad_inf_light                         = blufor_squad_NORTH_FIN_W_39_Rifle_Squad        select {[_x] call KPLIB_fnc_checkClass};
+blufor_squad_inf                               = blufor_squad_NORTH_FIN_J_W_39_Rifle_Squad      select {[_x] call KPLIB_fnc_checkClass};
+blufor_squad_NORTH_FIN_W_39_LMG_Squad          = blufor_squad_NORTH_FIN_W_39_LMG_Squad          select {[_x] call KPLIB_fnc_checkClass};
+blufor_squad_NORTH_FIN_W_39_AT_Team            = blufor_squad_NORTH_FIN_W_39_AT_Team            select {[_x] call KPLIB_fnc_checkClass};
+blufor_squad_NORTH_FIN_J_W_39_LMG_Squad        = blufor_squad_NORTH_FIN_J_W_39_LMG_Squad        select {[_x] call KPLIB_fnc_checkClass};
+blufor_squad_NORTH_FIN_J_W_39_AT_Team          = blufor_squad_NORTH_FIN_J_W_39_AT_Team          select {[_x] call KPLIB_fnc_checkClass};
+blufor_squad_NORTH_FIN_C_W_39_Rifle_Squad      = blufor_squad_NORTH_FIN_C_W_39_Rifle_Squad      select {[_x] call KPLIB_fnc_checkClass};
+blufor_squad_NORTH_NORTH_FIN_C_W_39_LMG_Squad  = blufor_squad_NORTH_NORTH_FIN_C_W_39_LMG_Squad  select {[_x] call KPLIB_fnc_checkClass};
+blufor_squad_NORTH_FIN_C_W_39_AT_Team          = blufor_squad_NORTH_FIN_C_W_39_AT_Team          select {[_x] call KPLIB_fnc_checkClass};
+/*
 blufor_squad_at                             = blufor_squad_at                           select {[_x] call KPLIB_fnc_checkClass};
 blufor_squad_aa                             = blufor_squad_aa                           select {[_x] call KPLIB_fnc_checkClass};
 blufor_squad_recon                          = blufor_squad_recon                        select {[_x] call KPLIB_fnc_checkClass};
+*/
 blufor_squad_para                           = blufor_squad_para                         select {[_x] call KPLIB_fnc_checkClass};
 elite_vehicles                              = elite_vehicles                            select {[_x] call KPLIB_fnc_checkClass};
 
@@ -217,15 +279,15 @@ KPLIB_b_buildings_classes                   = buildings                         
 KPLIB_b_support_classes                     = support_vehicles                          apply {toLower (_x select 0)};
 KPLIB_transport_classes                     = KPLIB_transportConfigs                    apply {toLower (_x select 0)};
 
-KPLIB_b_infantry_classes append (blufor_squad_inf_light + blufor_squad_inf + blufor_squad_at + blufor_squad_aa + blufor_squad_recon + blufor_squad_para);
+KPLIB_b_infantry_classes append (blufor_squad_inf_light + blufor_squad_inf + blufor_squad_NORTH_FIN_W_39_LMG_Squad + blufor_squad_NORTH_FIN_W_39_AT_Team + blufor_squad_NORTH_FIN_J_W_39_LMG_Squad + blufor_squad_NORTH_FIN_J_W_39_AT_Team + blufor_squad_NORTH_FIN_C_W_39_Rifle_Squad + blufor_squad_NORTH_NORTH_FIN_C_W_39_LMG_Squad + blufor_squad_NORTH_FIN_C_W_39_AT_Team + blufor_squad_para);
 KPLIB_b_infantry_classes                    = KPLIB_b_infantry_classes                  apply {toLower _x};
 KPLIB_b_infantry_classes                    = KPLIB_b_infantry_classes                  arrayIntersect KPLIB_b_infantry_classes;
 
 /*
     Opfor squad compositions
 */
-KPLIB_o_squadStd    = [opfor_squad_leader, opfor_medic, opfor_machinegunner, opfor_heavygunner, opfor_medic, opfor_marksman, opfor_grenadier, opfor_rpg];
-KPLIB_o_squadInf    = [opfor_squad_leader, opfor_medic, opfor_machinegunner, opfor_heavygunner, opfor_heavygunner, opfor_marksman, opfor_sharpshooter, opfor_sniper];
+KPLIB_o_squadStd    = [opfor_squad_leader, opfor_medic, opfor_machinegunner, opfor_heavygunner, opfor_rifleman, opfor_grenadier, opfor_grenadier, opfor_rpg];
+KPLIB_o_squadInf    = [opfor_squad_leader, opfor_medic, opfor_machinegunner, opfor_heavygunner, opfor_team_leader, opfor_at, opfor_sharpshooter, opfor_rifleman];
 KPLIB_o_squadTank   = [opfor_squad_leader, opfor_medic, opfor_machinegunner, opfor_rpg, opfor_rpg, opfor_at, opfor_at, opfor_at];
 KPLIB_o_squadAir    = [opfor_squad_leader, opfor_medic, opfor_machinegunner, opfor_rpg, opfor_rpg, opfor_aa, opfor_aa, opfor_aa];
 
@@ -313,12 +375,12 @@ KPLIB_typeAirClasses   = +KPLIB_b_air_classes;
 } forEach (KPLIB_b_support_classes + [toLower huron_typename]);
 
 // Military alphabet used for FOBs and convois
-military_alphabet = ["Alpha", "Bravo", "Charlie", "Delta", "Echo", "Foxtrot", "Golf", "Hotel", "India", "Juliet", "Kilo", "Lima", "Mike", "November", "Oscar", "Papa", "Quebec", "Romeo", "Sierra", "Tango", "Uniform", "Victor", "Whiskey", "X-Ray", "Yankee", "Zulu"];
+military_alphabet = ["Aarne", "Bertta", "Celsius", "Daavid", "Eemeli", "Faarao", "Gideon", "Heikki", "Iivari", "Jussi", "Kalle", "Lauri", "Matti", "Niilo", "Otto", "Paavo", "Kuu", "Risto", "Sakari", "Tyyne", "Urho", "Vihtori", "Viski", "äksä", "Yrjö", "Zeta"];
 
 // Misc variables
 markers_reset = [99999,99999,0];
 zeropos = [0,0,0];
-KPLIB_sarWreck = "Land_Wreck_Heli_Attack_01_F";
+KPLIB_sarWreck = "sab_i16_wreck";
 KPLIB_sarFire = "test_EmptyObjectForFireBig";
 
 KPLIB_initPresets = true;

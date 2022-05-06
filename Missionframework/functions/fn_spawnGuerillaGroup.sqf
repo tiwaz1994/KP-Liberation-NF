@@ -51,7 +51,7 @@ for "_i" from 1 to _amount do {
     // Add uniform etc.
     _unit forceAddUniform (selectRandom _uniforms);
     _unit addItemToUniform "FirstAidKit";
-    _unit addItemToUniform "MiniGrenade";
+    _unit addItemToUniform "NORTH_molotov";
     _unit addVest (selectRandom _vests);
     _unit addHeadgear (selectRandom _headgear);
     if (_tier > 1) then {_unit addGoggles (selectRandom KP_liberation_guerilla_facegear);};
@@ -70,11 +70,13 @@ for "_i" from 1 to _amount do {
     _unit addPrimaryWeaponItem (_weapon select 4);
 
     // Add possible RPG launcher
+    /*
     if ((_tier > 1) && ((random 100) <= KP_liberation_resistance_at_chance)) then {
         _unit addBackpack "B_FieldPack_cbr";
         for "_i" from 1 to 3 do {_unit addItemToBackpack "RPG7_F";};
         _unit addWeapon "launch_RPG7_F";
     };
+    */
 };
 
 _grp

@@ -101,3 +101,10 @@ class KPLIB {
     #include "scripts\client\CfgFunctions.hpp"
     #include "scripts\server\CfgFunctions.hpp"
 };
+class TWZ {
+    class functions {
+        file = "functions\twz";
+        class addContainerGear {};
+        class tiwazSmoothFog {};
+    };
+};
