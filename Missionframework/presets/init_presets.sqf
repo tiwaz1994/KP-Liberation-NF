@@ -380,7 +380,7 @@ military_alphabet = ["Aarne", "Bertta", "Celsius", "Daavid", "Eemeli", "Faarao",
 // Misc variables
 markers_reset = [99999,99999,0];
 zeropos = [0,0,0];
-KPLIB_sarWreck = "sab_i16_wreck";
+KPLIB_sarWreck = "LIB_P39_MRWreck";
 KPLIB_sarFire = "test_EmptyObjectForFireBig";
 
 KPLIB_initPresets = true;

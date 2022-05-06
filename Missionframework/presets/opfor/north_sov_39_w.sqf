@@ -124,6 +124,5 @@ opfor_choppers = [
 
 // Enemy fixed-wings that will need to spawn in the air.
 opfor_air = [
-    "sab_tusb2",
-    "sab_i16"
+    "sab_sw_i16"
 ];
