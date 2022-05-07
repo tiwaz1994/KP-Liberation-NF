@@ -1,11 +1,10 @@
 /*
     Needed Mods:
-    - IFA3_AIO_LITE
-	- Secret Weapons
-	- Secret Weapons Liveries
+    - IFA3A IO
+	- Flying Legends
+	- Secret Weapons (Reworked)
 	- Northern Fronts
 	- ACE
-
     Optional Mods:
     - None
 */
@@ -27,7 +26,7 @@ opfor_at = "O_NORTH_SOV_W_39_Submachinegunner";
 opfor_aa = "O_NORTH_SOV_W_39_Submachinegunner";
 opfor_medic = "O_NORTH_SOV_W_39_Medic";
 opfor_engineer = "O_NORTH_SOV_W_39_T_Crewman";
-opfor_paratrooper = "O_NORTH_SOV_W_39_Submachinegunner_38";
+opfor_paratrooper = "O_NORTH_SOV_V_W_39_Autorifleman_Avtomat";
 
 // Enemy vehicles used by secondary objectives.
 opfor_mrap = "NORTH_SOV_W_39_T26_M31";
@@ -63,6 +62,8 @@ militia_squad = [
 // Militia vehicles. Lightweight vehicle classnames the game will pick from randomly as sector defenders. Can also be empty for only infantry milita.
 militia_vehicles = [
     "NORTH_SOV_W_39_T26_M31",
+    "NORTH_SOV_W_39_BA10",
+    "NORTH_SOV_W_39_T38",
     "LIB_61k",
     "LIB_61k"
 ];
@@ -71,24 +72,48 @@ militia_vehicles = [
 opfor_vehicles = [
     "NORTH_SOV_W_39_T26_M31",
     "NORTH_SOV_W_39_T26_M38",
-    "NORTH_SOV_W_39_T26_M33"
+    "NORTH_SOV_W_39_T26_M33",
+    "NORTH_SOV_W_39_BA10",
+    "NORTH_SOV_W_39_BT5",
+    "NORTH_SOV_W_39_BT5Com",
+    "NORTH_SOV_W_39_BT7_M35",
+    "NORTH_SOV_W_39_BT7Com_M35",
+    "NORTH_SOV_W_39_BT7",
+    "NORTH_SOV_W_39_BT7A",
+    "NORTH_SOV_W_39_T20",
+    "NORTH_SOV_W_39_T38"
 ];
 
 // All enemy vehicles that can spawn as sector defenders and patrols but at a lower enemy combat readiness (aggression levels).
 opfor_vehicles_low_intensity = [
-    "NORTH_SOV_W_39_T26_M31"
+    "NORTH_SOV_W_39_T26_M31",
+    "NORTH_SOV_W_39_BA10",
+    "NORTH_SOV_W_39_T38"
 ];
 
 // All enemy vehicles that can spawn as battlegroups, either assaulting or as reinforcements, at high enemy combat readiness (aggression levels).
 opfor_battlegroup_vehicles = [
-    "NORTH_SOV_W_39_T26_M33_OT",
     "NORTH_SOV_W_39_T26_M31",
     "NORTH_SOV_W_39_T26_M33",
-    "NORTH_SOV_W_39_T26_M38",
     "NORTH_SOV_W_39_T26_M33com",
-    "NORTH_SOV_W_39_T28e",
+    "NORTH_SOV_W_39_T26_M33_OT",
+    "NORTH_SOV_W_39_T26_M38",
+    "NORTH_SOV_W_39_T26_M39",
+    "NORTH_SOV_W_39_T26_M39_OT",
+    "NORTH_SOV_W_39_BA10",
     "NORTH_SOV_W_39_T28",
     "NORTH_SOV_W_39_T28_com",
+    "NORTH_SOV_W_39_T28_M34",
+    "NORTH_SOV_W_39_T28_M34_com",
+    "NORTH_SOV_W_39_T28e",
+    "NORTH_SOV_W_39_BT5",
+    "NORTH_SOV_W_39_BT5Com",
+    "NORTH_SOV_W_39_BT7_M35",
+    "NORTH_SOV_W_39_BT7Com_M35",
+    "NORTH_SOV_W_39_BT7",
+    "NORTH_SOV_W_39_BT7A",
+    "NORTH_SOV_W_39_T20",
+    "NORTH_SOV_W_39_T38",
     "LIB_Zis5v"
 ];
 
@@ -98,9 +123,15 @@ opfor_battlegroup_vehicles_low_intensity = [
     "LIB_Zis5v",
     "LIB_Zis5v",
     "LIB_Zis5v",
+    "NORTH_SOV_W_39_BA10",
     "NORTH_SOV_W_39_T26_M33",
     "NORTH_SOV_W_39_T26_M31",
-    "NORTH_SOV_W_39_T26_M38"
+    "NORTH_SOV_W_39_T26_M38",
+    "NORTH_SOV_W_39_T26_M39",
+    "NORTH_SOV_W_39_BT5",
+    "NORTH_SOV_W_39_BT7_M35",
+    "NORTH_SOV_W_39_BT7",
+    "NORTH_SOV_W_39_T38"
 ];
 
 /* All vehicles that spawn within battlegroups (see the above 2 arrays) and also hold 8 soldiers as passengers.
@@ -114,6 +145,7 @@ opfor_troup_transports = [
     "NORTH_SOV_W_39_T26_M33",
     "NORTH_SOV_W_39_T26_M31",
     "NORTH_SOV_W_39_T26_M33_OT",
+    "NORTH_SOV_W_39_T20",
     "LIB_Zis5v"
 ];
 

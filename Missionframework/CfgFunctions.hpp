@@ -106,5 +106,6 @@ class TWZ {
         file = "functions\twz";
         class addContainerGear {};
         class tiwazSmoothFog {};
+        class addClearActions {};
     };
 };

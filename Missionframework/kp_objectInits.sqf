@@ -63,6 +63,7 @@ KPLIB_objectInits = [
                 params ["_fob"];
                 waitUntil {sleep 0.1; time > 0};
                 [_fob] remoteExecCall ["KPLIB_fnc_addActionsFob", 0, _fob];
+                [_fob] remoteExecCall ["TWZ_fnc_addClearActions", 0, _fob];
             };
         }
     ],
@@ -155,7 +156,7 @@ KPLIB_objectInits = [
 
     //add Cargo to NF support boxes
     [
-        ["WW2_Cle_Container","NORTH_Supplytorpedo"],
+        ["NORTH_Supplytorpedo"],
         {
             [{_this call TWZ_fnc_addContainerGear;},_this,3] call CBA_fnc_waitAndExecute;
         }
