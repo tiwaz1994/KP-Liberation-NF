@@ -15,7 +15,7 @@
     Or not, just don't try!
 */
 FOB_typename = "Land_Antenna";                                    // This is the main FOB HQ building.
-FOB_box_typename = "LIB_SdKfz_7_w";                                     // This is the FOB as a container.
+FOB_box_typename = "LIB_US_GMC_Tent_w";                                 // This is the FOB as a container.
 FOB_truck_typename = "LIB_SdKfz_7_w";            	                    // This is the FOB as a vehicle.
 Arsenal_typename = "B_supplyCrate_F";                                   // This is the virtual arsenal as portable supply crates.
 Respawn_truck_typename = "LIB_OpelBlitz_Ambulance_w";                   // This is the mobile respawn (and medical) truck.

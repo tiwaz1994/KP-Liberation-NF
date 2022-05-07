@@ -8,7 +8,7 @@ class EditorData
 	toggles=10;
 	class ItemIDProvider
 	{
-		nextID=14767;
+		nextID=14771;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=3871;
+		nextID=3925;
 	};
 	class Camera
 	{
-		pos[]={13081.753,62.342213,10347.598};
-		dir[]={-0.1438767,-0.28530702,-0.94757557};
-		up[]={-0.042829178,0.95843619,-0.28207403};
-		aside[]={-0.98866844,0,0.1501161};
+		pos[]={1458.2689,180.46736,1935.3752};
+		dir[]={-0.77028722,-0.5024991,0.39264929};
+		up[]={-0.44769233,0.86457771,0.22820877};
+		aside[]={0.45414889,2.0314474e-007,0.89093655};
 	};
 };
 binarizationWanted=0;
@@ -13490,7 +13490,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=12;
+		items=13;
 		class Item0
 		{
 			dataType="Layer";
@@ -120676,6 +120676,62 @@ class Mission
 					};
 				};
 				nAttributes=1;
+			};
+		};
+		class Item12
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1056.978,36.490002,2165.863};
+				angles[]={0,2.1697583,0};
+			};
+			areaSize[]={20,0,5};
+			areaIsRectangle=1;
+			flags=1;
+			id=14767;
+			type="ModuleHideTerrainObjects_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="#filter";
+					expression="_this setVariable [""#filter"",_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=4;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="#hideLocally";
+					expression="_this setVariable [""#hideLocally"",_value]";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
 			};
 		};
 	};

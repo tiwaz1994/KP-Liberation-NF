@@ -44,30 +44,47 @@ if (GRLIB_all_fobs isEqualTo []) then {
         sleep 10;
     };
 
-    // Spawn start resource crates and attach them to parachutes
-    KPLIB_startCrates = [];
-    private _crate = objNull;
-    for "_i" from 1 to 6 do {
-        _crate = createVehicle [
-            (KPLIB_crates select (_i % 3)),
-            [((GRLIB_all_fobs select 0) select 0), ((GRLIB_all_fobs select 0) select 1), 150],
-            [],
-            80,
-            "FLY"
+    //spawn starting ressources once first storage is build
+    waitUntil{sleep 1;(count ((GRLIB_all_fobs # 0 nearobjects (GRLIB_fob_range * 2)) select {(_x getVariable ["KP_liberation_storage_type",-1]) == 0})) > 0};
+    private _storageArea = ((GRLIB_all_fobs # 0 nearobjects (GRLIB_fob_range * 2)) select {(_x getVariable ["KP_liberation_storage_type",-1]) == 0}) # 0;
+    for "_i" from 1 to 6 do 
+    {
+        private _crate = createVehicle [
+        (KPLIB_crates select (_i % 3)),
+        [0,0,0],
+        [],
+        80
         ];
         [_crate, true] call KPLIB_fnc_clearCargo;
         _crate setVariable ["KP_liberation_crate_value", 100, true];
-        [_crate, 500] remoteExec ["setMass", _crate];
-        [objNull, _crate] call BIS_fnc_curatorObjectEdited;
-        if (KP_liberation_ace) then {[_crate, true, [0, 1.5, 0], 0] remoteExec ["ace_dragging_fnc_setCarryable"];};
-        KPLIB_startCrates pushBack _crate;
+        [_crate, _storageArea,true] call KPLIB_fnc_crateToStorage;
     };
+    ["Starting ressources are now in your storage"] remoteExec ["hint"];
 
-    // Spawn green smoke on the crates short before they hit the ground
-    uiSleep 25;
-    private _smoke = objNull;
-    {
-        _smoke = "SmokeShellGreen" createVehicle (getPos _x);
-        _smoke attachTo [_x];
-    } forEach KPLIB_startCrates;
+    // Spawn start resource crates and attach them to parachutes
+    // KPLIB_startCrates = [];
+    // private _crate = objNull;
+    // for "_i" from 1 to 6 do {
+    //     _crate = createVehicle [
+    //         (KPLIB_crates select (_i % 3)),
+    //         [((GRLIB_all_fobs select 0) select 0), ((GRLIB_all_fobs select 0) select 1), 150],
+    //         [],
+    //         80,
+    //         "FLY"
+    //     ];
+    //     [_crate, true] call KPLIB_fnc_clearCargo;
+    //     _crate setVariable ["KP_liberation_crate_value", 100, true];
+    //     [_crate, 500] remoteExec ["setMass", _crate];
+    //     [objNull, _crate] call BIS_fnc_curatorObjectEdited;
+    //     if (KP_liberation_ace) then {[_crate, true, [0, 1.5, 0], 0] remoteExec ["ace_dragging_fnc_setCarryable"];};
+    //     KPLIB_startCrates pushBack _crate;
+    // };
+
+    // // Spawn green smoke on the crates short before they hit the ground
+    // uiSleep 25;
+    // private _smoke = objNull;
+    // {
+    //     _smoke = "SmokeShellGreen" createVehicle (getPos _x);
+    //     _smoke attachTo [_x];
+    // } forEach KPLIB_startCrates;
 };
