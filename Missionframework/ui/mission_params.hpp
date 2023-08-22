@@ -45,13 +45,13 @@ class Params {
         title = $STR_PARAMS_CIVILIANS;
         values[] = {0, 1, 2, 3};
         texts[] = {$STR_PARAMS_CIVILIANS1, $STR_PARAMS_CIVILIANS2, $STR_PARAMS_CIVILIANS3, $STR_PARAMS_CIVILIANS4};
-        default = 2;
+        default = 1;
     };
     class FirstFob {
         title = $STR_PARAMS_FIRSTFOB;
         values[] = {1, 0};
         texts[] = {$STR_YES, $STR_NO};
-        default = 0;
+        default = 1;
     };
     class FirstFobVehicle {
         title = $STR_PARAMS_FIRSTFOBVEHICLE;
@@ -93,7 +93,7 @@ class Params {
         title = $STR_SHORTER_NIGHTS_PARAM;
         values[] = {1, 0};
         texts[] = {$STR_PARAMS_ENABLED, $STR_PARAMS_DISABLED};
-        default = 0;
+        default = 1;
     };
     class Weather {
         title = $STR_WEATHER_PARAM;
@@ -267,7 +267,7 @@ class Params {
         title = $STR_PARAM_CR_BUILDING;
         values[] = {1, 0};
         texts[] = {$STR_PARAM_CR_DAMAGED, $STR_PARAM_CR_DESTROYED};
-        default = 1;
+        default = 0;
     };
     class HaloJump {
         title = $STR_HALO_PARAM;
@@ -351,7 +351,7 @@ class Params {
         title = $STR_CLEANUP_PARAM;
         values[] = {0, 1, 2, 4};
         texts[] = {$STR_PARAMS_DISABLED, $STR_CLEANUP_PARAM1, $STR_CLEANUP_PARAM2, $STR_CLEANUP_PARAM3};
-        default = 2;
+        default = 1;
     };
     class Introduction {
         title = $STR_PARAMS_INTRO;
