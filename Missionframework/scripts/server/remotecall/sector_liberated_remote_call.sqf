@@ -38,8 +38,8 @@ if (_liberated_sector in sectors_factory) then {
         0,
         0
     ];
-    private _buildingPos = objNull;
-    private _attempts = 1;
+    private _buildingPos = nil;
+    private _attempts = 0;
     while {_attempts < 10} do {
         private _candidatePos = [markerPos _liberated_sector,0,10 * _attempts,10,0,0.2] call BIS_fnc_findSafePos;
         if (count _candidatePos == 2) then {
