@@ -1,5 +1,5 @@
 
-private _spawn_marker = [ 2000, 999999, false ] call KPLIB_fnc_getOpforSpawnPoint;
+private _spawn_marker = [ 2000, 4000, true ] call KPLIB_fnc_getOpforSpawnPoint;
 if ( _spawn_marker == "" ) exitWith {["Could not find position for search and rescue mission", "ERROR"] call KPLIB_fnc_log;};
 used_positions pushbackUnique _spawn_marker;
 

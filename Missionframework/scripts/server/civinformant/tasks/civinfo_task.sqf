@@ -1,6 +1,6 @@
 if (KP_liberation_civinfo_debug > 0) then {[format ["civinfo_task.sqf spawned on: %1", debug_source], "CIVINFO"] remoteExecCall ["KPLIB_fnc_log", 2];};
 
-private _spawn_marker = [2000,999999,false] call KPLIB_fnc_getOpforSpawnPoint;
+private _spawn_marker = [1500,3000,true] call KPLIB_fnc_getOpforSpawnPoint;
 private _roadObj = [markerPos _spawn_marker, 400, []] call BIS_fnc_nearestRoad;
 
 if (isNull _roadObj) exitWith {if (KP_liberation_civinfo_debug > 0) then {["civinfo_task.sqf -> no road found", "CIVINFO"] remoteExecCall ["KPLIB_fnc_log", 2];};};
