@@ -12,6 +12,10 @@ if (GRLIB_all_fobs isEqualTo []) then {
             _y = _x;
             (sectors_allSectors findIf {((markerPos _x) distance2d (markerPos _y)) < 800}) isEqualTo -1
         };
+        private _markedPositions = allMapMarkers select {_x find "starting_fob" == 0};
+        if (count _markedPositions > 0) then {
+            _validPlaces = _markedPositions;
+        };
 
         // Spawn first FOB on random valid spawnpoint
         [markerPos (selectRandom _validPlaces), true] remoteExec ["build_fob_remote_call", 2];
