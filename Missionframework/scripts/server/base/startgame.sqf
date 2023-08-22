@@ -47,7 +47,7 @@ if (GRLIB_all_fobs isEqualTo []) then {
     //spawn starting ressources once first storage is build
     waitUntil{sleep 1;(count ((GRLIB_all_fobs # 0 nearobjects (GRLIB_fob_range * 2)) select {(_x getVariable ["KP_liberation_storage_type",-1]) == 0})) > 0};
     private _storageArea = ((GRLIB_all_fobs # 0 nearobjects (GRLIB_fob_range * 2)) select {(_x getVariable ["KP_liberation_storage_type",-1]) == 0}) # 0;
-    for "_i" from 1 to 6 do 
+    for "_i" from 1 to 12 do 
     {
         private _crate = createVehicle [
         (KPLIB_crates select (_i % 3)),
