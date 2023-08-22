@@ -33,30 +33,29 @@ if ((_unit isKindOf "Man") && (alive _unit) && (side group _unit == GRLIB_side_e
             _unit setCaptive true;
         };
         /*ALLOW PLAYERS TO INTEROGATE UNITS IN THE FIELD - kinda ugly should probably do this proper some day */
-        _unit addAction ["interrogate in the field and release. (gives less intel)", {
+        [_unit,["interrogate in the field and release. (gives less intel)", {
             params ["_target", "_caller", "_actionId", "_arguments"];
             private _unit = _target;
+            if (!alive _unit) exitWith {};
             resources_intel = resources_intel + 2;
             stats_prisoners_captured = stats_prisoners_captured + 1;
             [0] remoteExec ["remote_call_intel"];
-            if (alive _unit) then {
-                if (KP_liberation_ace) then {
-                    ["ace_captives_setSurrendered", [_unit, false], _unit] call CBA_fnc_targetEvent;
-                } else {
-                    _unit enableAI "ANIM";
-                    _unit enableAI "move";
-                    _unit setCaptive false;
-                };
+            if (KP_liberation_ace) then {
+                ["ace_captives_setSurrendered", [_unit, false], _unit] call CBA_fnc_targetEvent;
+            } else {
+                _unit enableAI "ANIM";
+                _unit enableAI "move";
+                _unit setCaptive false;
             };
             private _grp = creategroup [civilian, true];
             [_unit] joinSilent _grp;
             _unit setunitPos "UP";
             _unit setCaptive false;
-            null = _unit spawn {
-                private _unit = _this;
+            _grp spawn {
+                private _unit = (units _grp)#0;
                 while (alive _unit) do
                 {
-                    _unit addWaypoint [position _unit,5000,0];
+                    _unit addWaypoint [position _unit,400,0];
                     sleep 120;
                     if (count (allPlayers select {_unit distance _x < 300}) == 0) then
                     {
@@ -71,7 +70,7 @@ if ((_unit isKindOf "Man") && (alive _unit) && (side group _unit == GRLIB_side_e
         true,
         "",
         "_this distance _target < 5"
-        ];
+        ]] remoteExec ["addAction",0];
         waitUntil {sleep 1;
             !alive _unit || side group _unit == GRLIB_side_friendly
         };
