@@ -23,7 +23,6 @@ if (_liberated_sector in sectors_factory) then {
     {
         if (_liberated_sector in _x) exitWith {KP_liberation_production = KP_liberation_production - [_x];};
     } forEach KP_liberation_production;
-
     private _sectorFacilities = (KP_liberation_production_markers select {_liberated_sector == (_x select 0)}) select 0;
     KP_liberation_production pushBack [
         markerText _liberated_sector,
@@ -39,6 +38,24 @@ if (_liberated_sector in sectors_factory) then {
         0,
         0
     ];
+    private _buildingPos = objNull;
+    private _attempts = 1;
+    while {_attempts < 10} do {
+        private _candidatePos = [markerPos _liberated_sector,0,10 * _attempts,10,0,0.2] call BIS_fnc_findSafePos;
+        if (count _candidatePos == 2) then {
+            _buildingPos = _candidatePos;
+            break;
+        };
+        _attempts = _attempts + 1;
+    };
+    private _building = KP_liberation_small_storage_building createVehicle _buildingPos;
+    _building allowDamage false;
+    _building setVectorUp surfaceNormal position _building;
+    _building setVariable ["KP_liberation_storage_type", 1, true];
+    _building setDamage 0;
+    _building allowDamage true;
+    recalculate_sectors = true;
+    publicVariable "recalculate_sectors";
 };
 
 [_liberated_sector] spawn F_cr_liberatedSector;
