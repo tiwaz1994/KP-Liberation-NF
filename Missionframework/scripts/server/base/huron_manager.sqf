@@ -12,7 +12,19 @@ if !(_savedHuron isEqualTo []) then {
 while {true} do {
     // Spawn new huron if not loaded or destroyed
     if !(alive huron) then {
-        huron = huron_typename createVehicle [(getposATL huronspawn) select 0, (getposATL huronspawn) select 1, ((getposATL huronspawn) select 2) + 0.2];
+        private _spawnPos = [(getposATL huronspawn) select 0, (getposATL huronspawn) select 1, ((getposATL huronspawn) select 2) + 0.2];
+        if (!(isNil "custom_huronspawn") && {alive custom_huronspawn}) then {
+            private _attempts = 0;
+            while {_attempts < 10} do {
+                private _candidatePos = [custom_huronspawn,0,10 * _attempts,8,0,0.2] call BIS_fnc_findSafePos;
+                if (count _candidatePos == 2) then {
+                    _spawnPos = _candidatePos;
+                    break;
+                };
+                _attempts = _attempts + 1;
+             };
+        };
+        huron = huron_typename createVehicle _spawnPos;
         huron enableSimulationGlobal false;
         huron allowdamage false;
         huron setDir (getDir huronspawn);

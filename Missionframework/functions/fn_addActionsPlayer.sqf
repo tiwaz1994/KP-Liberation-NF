@@ -2,7 +2,7 @@
     File: fn_addActionsPlayer.sqf
     Author: KP Liberation Dev Team - https://github.com/KillahPotatoes
     Date: 2020-04-13
-    Last Update: 2020-08-07
+    Last Update: 2023-08-22
     License: MIT License - http://www.opensource.org/licenses/MIT
 
     Description:
@@ -366,6 +366,27 @@ _player addAction [
         && {isNull (objectParent _originalTarget)}
         && {alive _originalTarget}
         && {_originalTarget getVariable ['KPLIB_fobDist', 99999] < (GRLIB_fob_range * 0.8)}
+        && {build_confirmed isEqualTo 0}
+    "
+];
+
+// Set custom huron spawn at FOB
+_player addAction [
+    "<t color='#FFFF00'>Set huron spawn</t>",
+    "scripts\client\actions\do_setCustomHuronSpawn.sqf",
+    nil,
+    -900,
+    false,
+    true,
+    "",
+    "
+        isNull (objectParent _originalTarget)
+        && {alive _originalTarget}
+        && {_originalTarget getVariable ['KPLIB_fobDist', 99999] < (GRLIB_fob_range * 0.8)}
+        && {
+            _originalTarget getVariable ['KPLIB_hasDirectAccess', false]
+            || {[3] call KPLIB_fnc_hasPermission}
+        }
         && {build_confirmed isEqualTo 0}
     "
 ];
