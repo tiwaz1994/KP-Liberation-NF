@@ -2,7 +2,7 @@
     File: fn_addActionsFob.sqf
     Author: KP Liberation Dev Team - https://github.com/KillahPotatoes
     Date: 2020-04-13
-    Last Update: 2022-05-07
+    Last Update: 2023-08-23
     License: MIT License - http://www.opensource.org/licenses/MIT
 
     Description:
@@ -29,6 +29,41 @@ if ((typeOf _obj) isEqualTo FOB_typename) exitWith {
         "scripts\client\actions\do_repackage_fob.sqf",
         nil,
         -754,
+        false,
+        true,
+        "",
+        "isNull (objectParent _this) && {player getVariable ['KPLIB_hasDirectAccess', false]}",
+        20
+    ];
+
+    //sleep action
+    _obj addAction [
+        "<t color='#FFFF00'>--Sleep</t>",
+        {
+            if !(daytime < 16 && daytime > 8) then {
+                [9] remoteExecCall ["BIS_fnc_paramdaytime", 2];
+                [240, 0] remoteExecCall ["setFog", 2];
+                ["Hyvää huomenta."] remoteExec ["hint",0];
+            } else {
+                ["It is too bright to sleep, but the fog seems to improve."] remoteExec ["hint",0];
+                [240, 0] remoteExecCall ["setFog", 2];
+            }
+        },
+        nil,
+        -755,
+        false,
+        true,
+        "",
+        "isNull (objectParent _this) && {player getVariable ['KPLIB_hasDirectAccess', false]}",
+        20
+    ];
+
+    // Set custom huron spawn at FOB
+    _obj addAction [
+        "<t color='#FFFF00'>--Set huron spawn location</t>",
+        "scripts\client\actions\do_setCustomHuronSpawn.sqf",
+        nil,
+        -753,
         false,
         true,
         "",
