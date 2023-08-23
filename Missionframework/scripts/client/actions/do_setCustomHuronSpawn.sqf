@@ -19,3 +19,4 @@
 params ["_target", "_caller", "_actionId", "_arguments"];
 custom_huronspawn = _target;
 publicVariable "custom_huronspawn";
+["Huron spawn location has been changed"] remoteExec ["hint",2];

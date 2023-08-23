@@ -38,7 +38,7 @@ if ((typeOf _obj) isEqualTo FOB_typename) exitWith {
 
     //sleep action
     _obj addAction [
-        "<t color='#FFFF00'>--Sleep</t>",
+        "<t color='#FFFF00'>-- Sleep</t>",
         {
             if !(daytime < 16 && daytime > 8) then {
                 [9] remoteExecCall ["BIS_fnc_paramdaytime", 2];
@@ -50,7 +50,7 @@ if ((typeOf _obj) isEqualTo FOB_typename) exitWith {
             }
         },
         nil,
-        -755,
+        -753,
         false,
         true,
         "",
@@ -60,10 +60,10 @@ if ((typeOf _obj) isEqualTo FOB_typename) exitWith {
 
     // Set custom huron spawn at FOB
     _obj addAction [
-        "<t color='#FFFF00'>--Set huron spawn location</t>",
+        "<t color='#FFFF00'>-- Set huron spawn location</t>",
         "scripts\client\actions\do_setCustomHuronSpawn.sqf",
         nil,
-        -753,
+        -751,
         false,
         true,
         "",
