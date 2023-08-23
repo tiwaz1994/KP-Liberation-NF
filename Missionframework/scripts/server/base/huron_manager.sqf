@@ -16,7 +16,7 @@ while {true} do {
         if (!(isNil "custom_huronspawn") && {alive custom_huronspawn}) then {
             private _attempts = 0;
             while {_attempts < 10} do {
-                private _candidatePos = [custom_huronspawn,0,10 * _attempts,8,0,0.2] call BIS_fnc_findSafePos;
+                private _candidatePos = [custom_huronspawn,0,10 * (_attempts + 1),8,0,0.2] call BIS_fnc_findSafePos;
                 if (count _candidatePos == 2) then {
                     _spawnPos = _candidatePos;
                     break;
@@ -28,7 +28,7 @@ while {true} do {
         huron enableSimulationGlobal false;
         huron allowdamage false;
         huron setDir (getDir huronspawn);
-        huron setPosATL (getposATL huronspawn);
+        //huron setPosATL (getposATL huronspawn);
         huron setDamage 0;
         sleep 0.5;
         huron enableSimulationGlobal true;
