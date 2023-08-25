@@ -259,8 +259,8 @@ class Params {
     };
     class AiLogistics {
         title = $STR_PARAMS_AILOGISTICS;
-        values[] = {0, 1};
-        texts[] = {$STR_PARAMS_DISABLED, $STR_PARAMS_ENABLED};
+        values[] = {0, 1,2};
+        texts[] = {$STR_PARAMS_DISABLED, $STR_PARAMS_ENABLED,"passively calculated"};
         default = 1;
     };
     class CR_Building {

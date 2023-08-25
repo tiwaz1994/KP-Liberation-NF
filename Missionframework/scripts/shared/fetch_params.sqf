@@ -87,6 +87,14 @@ if(isServer) then {
     GET_PARAM(KP_liberation_respawn_cooldown, "RespawnCooldown", 900);
     GET_PARAM_BOOL(KP_liberation_mobilearsenal, "MobileArsenal", 1);
     GET_PARAM_BOOL(KPLIB_respawnOnAttackedSectors, "AttackedSectorRespawn", 0);
+    GET_PARAM(KP_liberation_ailogistics_param,"AiLogistics", 1);
+    KP_liberation_ailogistics_calculated = false;
+    KP_liberation_ailogistics = false;
+    switch (KP_liberation_ailogistics_param) do {
+        case 1: {KP_liberation_ailogistics = true;};
+        case 2: {KP_liberation_ailogistics_calculated = true;};
+        default {};
+    };
     GET_PARAM_BOOL(KP_liberation_ailogistics, "AiLogistics", 1);
     GET_PARAM_BOOL(KP_liberation_cr_param_buildings, "CR_Building", 0);
     GET_PARAM(GRLIB_halo_param, "HaloJump", 1);

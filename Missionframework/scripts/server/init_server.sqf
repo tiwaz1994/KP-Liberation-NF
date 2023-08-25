@@ -58,6 +58,7 @@ execVM "scripts\server\patrols\civilian_patrols.sqf";
 execVM "scripts\server\patrols\manage_patrols.sqf";
 execVM "scripts\server\patrols\reinforcements_resetter.sqf";
 if (KP_liberation_ailogistics) then {execVM "scripts\server\resources\manage_logistics.sqf";};
+if (KP_liberation_ailogistics_calculated) then {execVM "scripts\server\resources\manage_logistics_calculated.sqf";};
 execVM "scripts\server\resources\manage_resources.sqf";
 execVM "scripts\server\resources\recalculate_resources.sqf";
 execVM "scripts\server\resources\recalculate_timer.sqf";
